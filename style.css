@@ -1,0 +1,88 @@
+/* Simple Loading Page Styles */
+:root {
+  --bg: #0f172a;
+  --card: #111827;
+  --text: #e5e7eb;
+  --muted: #9ca3af;
+  --accent: #22d3ee;
+}
+
+* { box-sizing: border-box; }
+html, body { height: 100%; }
+body {
+  margin: 0;
+  font-family: "Inter", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+}
+
+.hidden { display: none !important; }
+
+.loader-overlay {
+  position: fixed;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  background: radial-gradient(1200px 600px at 50% -200px, rgba(34,211,238,0.12), transparent),
+              radial-gradient(800px 400px at -200px 100%, rgba(34,211,238,0.08), transparent),
+              rgba(15,23,42,0.9);
+  backdrop-filter: blur(2px);
+  z-index: 50;
+}
+
+.loader-card {
+  background: linear-gradient(180deg, rgba(255,255,255,0.04), rgba(255,255,255,0.02));
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 14px;
+  padding: 28px 24px;
+  width: 280px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.35);
+}
+
+.spinner {
+  --size: 28px;
+  width: var(--size);
+  height: var(--size);
+  border-radius: 50%;
+  border: 3px solid rgba(255,255,255,0.15);
+  border-top-color: var(--accent);
+  animation: spin 0.9s linear infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+.loader-text {
+  margin: 0;
+  font-weight: 600;
+  letter-spacing: 0.2px;
+}
+
+.app {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 48px 24px;
+}
+
+.app-header h1 { margin: 0 0 8px; }
+.app-header p { margin: 0 0 24px; color: var(--muted); }
+
+.app-content { line-height: 1.7; }
+
+.btn {
+  margin-top: 12px;
+  border: 0;
+  border-radius: 10px;
+  padding: 10px 14px;
+  color: #0b1020;
+  background: var(--accent);
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: 0 10px 20px rgba(34,211,238,0.2);
+}
+
+.btn:active { transform: translateY(1px); }

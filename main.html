@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Simple Loading Page</title>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="style.css" />
+    </head>
+    <body>
+        <div id="loader" class="loader-overlay" aria-live="polite" aria-busy="true">
+            <div class="loader-card" role="status" aria-label="Loading">
+                <div class="spinner" aria-hidden="true"></div>
+                <p class="loader-text">Loading, please wait…</p>
+            </div>
+        </div>
+
+        <main id="app" class="app hidden" tabindex="-1">
+            <header class="app-header">
+                <h1>Welcome!</h1>
+                <p>This is your content after loading completes.</p>
+            </header>
+            <section class="app-content">
+                <p>Here is some sample text. Replace with your real app.</p>
+                <button id="reloadBtn" class="btn">Show loader again</button>
+            </section>
+        </main>
+
+        <script src="script.js"></script>
+    </body>
+</html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    
+</body>
+</html>
