@@ -1,0 +1,25 @@
+version: "1.0"
+# Choose one of: jetbrains/qodana-js, jetbrains/qodana-php, jetbrains/qodana-jvm, jetbrains/qodana-python, etc.
+# For this HTML/CSS/JS project we use the JavaScript linter image.
+linter: jetbrains/qodana-js:2025.2
+
+# Optional paths to analyze (uncomment include to restrict)
+# include:
+#   - main.html
+#   - script.js
+#   - loader.js
+#   - style.css
+#   - tests/
+
+# Exclude generated or external stuff
+exclude:
+  - node_modules
+  - .git
+
+# Fail build if more than given number of problems (optional)
+# failureConditions:
+#   problems: 50
+
+# Save SARIF for code scanning integrations
+# report:
+#   - sarif
