@@ -18,6 +18,14 @@
   <main id="app" class="app">Test App Content</main>
 
   <script type="module" src="./tests/loader.test.js"></script>
-  <script>mocha.run();</script>
+  <script>
+    const runner = mocha.run();
+    runner.on('end', () => {
+      window.__testsDone = true;
+      window.__failures = runner.stats.failures;
+      window.__passes = runner.stats.passes;
+      window.__tests = runner.stats.tests;
+    });
+  </script>
 </body>
 </html>

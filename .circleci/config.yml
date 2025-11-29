@@ -1,9 +1,21 @@
 version: 2.1
 
 jobs:
+  unit-tests:
+    docker:
+      - image: cimg/node:lts
+    steps:
+      - checkout
+      - run:
+          name: Install dependencies
+          command: npm ci
+      - run:
+          name: Run headless browser tests
+          command: npm test
+
   code-quality:
     docker:
-      - image: jetbrains/qodana-jvm:latest
+      - image: jetbrains/qodana-js:2025.2
     steps:
       - checkout
       - run:
@@ -13,4 +25,5 @@ jobs:
 workflows:
   main:
     jobs:
+      - unit-tests
       - code-quality

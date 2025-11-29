@@ -1,0 +1,12 @@
+{
+  "name": "jira-tut",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "test": "node tests/run-headless.js"
+  },
+  "devDependencies": {
+    "http-server": "^14.1.1",
+    "puppeteer": "^23.8.0"
+  }
+}
