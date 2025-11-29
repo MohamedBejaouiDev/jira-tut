@@ -1,32 +1,23 @@
-// Simple Loading Page Logic
+// Simple Loading Page Logic (now using loader.js module)
 (function () {
   const loader = document.getElementById('loader');
   const app = document.getElementById('app');
   const reloadBtn = document.getElementById('reloadBtn');
 
-  // Simulate initial loading (e.g., fetching data)
-  function simulateLoad(ms = 1500) {
-    loader.classList.remove('hidden');
-    app.classList.add('hidden');
-
-    // Keep focus accessible on loader
-    loader.setAttribute('aria-busy', 'true');
-
-    setTimeout(() => {
-      loader.classList.add('hidden');
-      app.classList.remove('hidden');
-      loader.setAttribute('aria-busy', 'false');
-      app.focus();
-    }, ms);
+  // Dynamically import module to keep global scope clean
+  function start() {
+    import('./loader.js')
+      .then(mod => {
+        const run = () => mod.simulateLoad({ loaderEl: loader, appEl: app, duration: 1500 }).then(() => app.focus());
+        run();
+        reloadBtn?.addEventListener('click', () => mod.simulateLoad({ loaderEl: loader, appEl: app, duration: 1200 }));
+      })
+      .catch(err => console.error('Failed to load loader module', err));
   }
 
-  // Start once DOM is ready
   if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', () => simulateLoad());
+    document.addEventListener('DOMContentLoaded', start);
   } else {
-    simulateLoad();
+    start();
   }
-
-  // Button to show loader again
-  reloadBtn?.addEventListener('click', () => simulateLoad(1200));
 })();
